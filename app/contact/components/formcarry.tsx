@@ -59,7 +59,7 @@ export default function Formcarry() {
 
             <div className="grid formcarry-block">
                 <label className="mb-1 block" htmlFor="message">Your message</label>
-                <textarea rows="10" className="px-3 py-2 rounded-lg border border-green-300 text-white" value={message} onChange={(e) => setMessage(e.target.value)} id="message" placeholder="Enter your message..."></textarea>
+                <textarea className="px-3 py-2 rounded-lg border border-green-300 text-white" value={message} onChange={(e) => setMessage(e.target.value)} id="message" placeholder="Enter your message..."></textarea>
             </div>
 
             <div className="flex justify-center formcarry-block">
