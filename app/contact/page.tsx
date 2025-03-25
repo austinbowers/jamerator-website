@@ -1,6 +1,3 @@
-import Image from "next/image";
-import logo from "@/public/assets/Jamerator.png";
-import Link from "next/link";
 import Formcarry from "@/app/contact/components/formcarry";
 
 export default function Contact() {

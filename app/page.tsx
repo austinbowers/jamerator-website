@@ -1,7 +1,5 @@
 import Image from "next/image";
-import logo from './../public/assets/Jamerator.png'
 import iosImage from './../public/assets/ios-screenshot-2.png'
-import Link from "next/link";
 
 export default function Home() {
   return (
