@@ -6,8 +6,11 @@ export default function Formcarry() {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [error, setError] = useState('')
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     function onSubmit(e){
         e.preventDefault();
         e.stopPropagation();
