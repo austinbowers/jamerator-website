@@ -38,8 +38,12 @@ export default function RootLayout({
     </header>
     {children}
     <footer>
-        <div className="bg-[#08120C] text-[#30493B] flex justify-center items-center py-16">
-            <p className="text-center">© 2025 Austin Bowers. All rights reserved.</p>
+        <div className="bg-[#08120C] text-[#30493B] w-full py-16">
+            <p className="text-center">© 2025 Sauce Studios, LLC. All rights reserved.</p>
+            <div className="grid gap-4 mt-5">
+                <Link className="text-center" href="/privacy-policy">Privacy Policy</Link>
+                <Link className="text-center" href="/terms-and-conditions">Terms & Conditions</Link>
+            </div>
         </div>
     </footer>
     </body>

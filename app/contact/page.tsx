@@ -10,7 +10,7 @@ export default function Contact() {
                             Get in touch
                         </div>
                         <p className="text-center lg:text-left text-xl font-medium text-gray-400 mb-8">
-                            Please do not hesitate to reach out if you have any questions feedback regarding the app.
+                            Please do not hesitate to reach out if you have any questions or feedback regarding the app.
                         </p>
                     </div>
                     <div className="flex justify-center">

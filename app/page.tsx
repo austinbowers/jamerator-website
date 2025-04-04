@@ -9,14 +9,10 @@ export default function Home() {
                   <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-16 py-8">
                       <div className="lg:col-span-2">
                           <div className="text-center lg:text-left font-bold text-4xl lg:text-6xl text-white mb-6">
-                              AI Chord Progression Generator
+                              Guitar Chord Progression Generator
                           </div>
                           <p className="text-center lg:text-left text-xl font-medium text-gray-400 mb-8">
-                              Whether you play guitar solo or with friends, this app can completely transform your practice
-                              sessions and group jam sessions. AI-powered chord progressions will power you and your band to
-                              stay creative, and give you a fresh progression.
-                              Perfect for on-the-go jams, hanging out with fellow band-mates, or even just chilling at a
-                              bonfire.
+                              Whether you're riffing solo or rocking out with friends, Jamerator supercharges your creativity with over 3,000 chord progression combos. Spark fresh ideas, break out of your routine, and keep the vibes flowing—anytime, anywhere. Perfect for impromptu garage jams, late-night bonfire sessions, or locking in tight grooves with your bandmates. Stay inspired. Stay jamming.
                           </p>
                           <div className="flex justify-center lg:justify-start">
                               <a href=""
