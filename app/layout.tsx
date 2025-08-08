@@ -26,7 +26,7 @@ export default function RootLayout({
         className={`${nunitoSans.variable} antialiased`}
     >
     <header>
-        <div className="bg-[#08120C] flex items-center p-6">
+        <div className="bg-[#0D1210] flex items-center p-6">
             <div className="w-24 lg:w-32 mr-16">
                 <Image src={logo} alt="Logo"/>
             </div>
@@ -38,7 +38,7 @@ export default function RootLayout({
     </header>
     {children}
     <footer>
-        <div className="bg-[#08120C] text-[#30493B] w-full py-16">
+        <div className="bg-[#0D1210] text-[#30493B] w-full py-16">
             <p className="text-center">© 2025 Sauce Studios, LLC. All rights reserved.</p>
             <div className="grid gap-4 mt-5">
                 <Link className="text-center" href="/privacy-policy">Privacy Policy</Link>

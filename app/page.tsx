@@ -1,10 +1,10 @@
 import Image from "next/image";
-import iosImage from './../public/assets/ios-screenshot-2.png'
+import iosImage from './../public/assets/jamerator-example.png'
 
 export default function Home() {
   return (
       <div>
-          <div className="bg-[#0A130E] min-h-screen p-6">
+          <div className="bg-[#0D1210] min-h-screen p-6">
               <div className="max-w-7xl mx-auto">
                   <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-16 py-8">
                       <div className="lg:col-span-2">
