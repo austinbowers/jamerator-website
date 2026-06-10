@@ -27,7 +27,7 @@ export default function TermsAndConditions() {
             <h2 className="text-xl font-semibold mt-8 mb-4 text-slate-100">2. Intellectual Property</h2>
             <p className="mb-4 text-slate-100">
                 All content, features, and functionality within Jamerator, including but not limited to design, text,
-                graphics, logos, and software, are the exclusive property of <strong>Sauce Studios, LLC</strong> and are
+                graphics, logos, and software, are the exclusive property of <strong>Sauce Collective, LLC</strong> and are
                 protected by applicable intellectual property laws. All rights are reserved.
             </p>
 
@@ -40,7 +40,7 @@ export default function TermsAndConditions() {
             <h2 className="text-xl font-semibold mt-8 mb-4 text-slate-100">4. User Content</h2>
             <p className="mb-4 text-slate-100">
                 If the App enables saving or sharing of chord progressions or other user-generated content, you retain
-                ownership of that content. By using the App, you grant <strong>Sauce Studios, LLC</strong> a
+                ownership of that content. By using the App, you grant <strong>Sauce Collective, LLC</strong> a
                 non-exclusive, royalty-free license to use, store, display, and process such content solely for the
                 purpose of operating and improving the App.
             </p>
@@ -69,7 +69,7 @@ export default function TermsAndConditions() {
 
             <h2 className="text-xl font-semibold mt-8 mb-4 text-slate-100">8. Limitation of Liability</h2>
             <p className="mb-4 text-slate-100">
-                To the maximum extent permitted by applicable law, <strong>Sauce Studios, LLC</strong> shall not be
+                To the maximum extent permitted by applicable law, <strong>Sauce Collective, LLC</strong> shall not be
                 liable for any indirect, incidental, consequential, or special damages arising out of or in connection
                 with your use of the App. This includes, but is not limited to, loss of data, lost profits, or other
                 intangible losses.

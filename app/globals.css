@@ -1,25 +1,161 @@
 @import "tailwindcss";
 
+/* ── Jamerator design tokens ────────────────────────────────────────
+   Ported from the Jamerator Design System (claude.ai/design handoff).
+   Single sage/mint accent on a deep green-black canvas. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* — Greens: canvas & surfaces — */
+  --green-canvas:    #070A0C; /* app screen background (deepest, cool near-black) */
+  --green-surface:   #0D1210; /* website / primary dark surface */
+  --green-surface-2: #121A16; /* faintly raised green card on dark */
+  --green-hairline:  #1C2B23; /* subtle green dividers on dark */
+
+  /* — Neutral surfaces (in-app panels & circular controls) — */
+  --neutral-1: #141719;
+  --neutral-2: #1A1D1F;
+  --neutral-border: #2C3135;
+
+  /* — Sage / mint accent ramp — */
+  --sage-200: #C7E2D3;
+  --sage-300: #A9CDBA;
+  --sage-400: #85B59C; /* PRIMARY brand sage */
+  --sage-500: #6E9C84;
+  --sage-600: #587869; /* dim sage — barre bars */
+  --sage-650: #4E685B; /* muted sage — beat-marker dots */
+  --sage-700: #41584C; /* muted sage — chord-grid lines, strong borders */
+  --sage-900: #233129;
+  --mint-100: #D6F5E3;
+  --mint-300: #86EFAC;
+
+  /* — Neutrals — */
+  --ink-950: #07100B; /* deepest ink — text on sage fills */
+  --white:    #FFFFFF;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --muted-green: #30493B;
+
+  /* — Semantic surfaces — */
+  --color-bg:             var(--green-canvas);
+  --color-surface:        var(--green-surface);
+  --color-surface-raised: var(--green-surface-2);
+  --color-panel:          var(--neutral-1);
+  --color-control:        var(--neutral-2);
+
+  /* — Semantic brand — */
+  --color-primary:       var(--sage-400);
+  --color-primary-hover: var(--mint-300);
+  --color-primary-press: var(--sage-500);
+  --color-accent:        var(--sage-400);
+
+  /* — Semantic text — */
+  --text-primary:    var(--white);
+  --text-secondary:  var(--gray-400);
+  --text-label:      var(--sage-400);
+  --text-muted:      var(--muted-green);
+  --text-on-primary: var(--ink-950);
+
+  /* — Semantic borders — */
+  --border-subtle:  var(--sage-900);
+  --border-default: rgba(133, 181, 156, 0.35);
+  --border-strong:  var(--sage-700);
+  --border-control: var(--neutral-border);
+  --focus-ring:     var(--sage-400);
+
+  /* — Type — */
+  --font-body: var(--font-nunito-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+  --text-4xl:  36px;
+  --text-5xl:  48px;
+  --text-6xl:  60px;
+  --tracking-wide: 0.04em;
+
+  /* — Radius — */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;
+
+  /* — Shadows / glow — */
+  --shadow-card:  0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-raise: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --shadow-glow:  0 0 24px rgba(133, 181, 156, 0.55);
+  --shadow-glow-soft: 0 0 14px rgba(133, 181, 156, 0.30);
+
+  /* — Liquid Glass material (iOS-26 style translucent controls) — */
+  --glass-blur:        blur(18px) saturate(180%);
+  --glass-tint:        rgba(255, 255, 255, 0.10);
+  --glass-tint-strong: rgba(255, 255, 255, 0.20);
+  --glass-edge:        rgba(255, 255, 255, 0.24);
+  --glass-tint-sage:        rgba(133, 181, 156, 0.30);
+  --glass-tint-sage-strong: rgba(133, 181, 156, 0.62);
+  --glass-sheen:  inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -7px 13px rgba(0, 0, 0, 0.18);
+  --shadow-glass: 0 6px 18px rgba(0, 0, 0, 0.38);
+
+  /* — Motion — */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:   120ms;
+  --dur-normal: 200ms;
+  --dur-slow:   320ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--green-surface);
+  --color-foreground: var(--white);
   --font-sans: var(--font-nunito-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  margin: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background: var(--green-surface);
+  color: var(--white);
+}
+
+/* ── Homepage layout & chrome ─────────────────────────────────────── */
+
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13, 18, 16, 0.82);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid var(--green-hairline);
+}
+.nav-link { color: var(--gray-300); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; transition: color var(--dur-fast) var(--ease-standard); }
+.nav-link:hover { color: var(--mint-300); }
+.desktop-nav { display: flex; align-items: center; gap: 26px; }
+.menu-toggle { display: none; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; color: var(--white); }
+.mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; border-top: 1px solid var(--green-hairline); border-bottom: 1px solid var(--green-hairline); background: rgba(10,14,12,0.97); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); box-shadow: 0 24px 40px rgba(0,0,0,0.45); }
+.mobile-menu .nav-link { display: block; padding: 15px 2px; font-size: 17px; border-bottom: 1px solid var(--green-hairline); }
+@media (max-width: 760px) {
+  .desktop-nav, .header-cta { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .mobile-menu.open { display: block; }
+}
+
+.eyebrow { color: var(--sage-400); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 14px; }
+.h2 { margin: 0 0 16px; font-size: 38px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.12; text-wrap: pretty; }
+.body-copy { margin: 0; color: var(--gray-400); font-size: 17px; font-weight: 500; line-height: 1.65; max-width: 46ch; text-wrap: pretty; }
+.feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; padding: 64px 0; }
+.footer-link { color: var(--muted-green); text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; }
+.footer-link:hover { color: var(--sage-400); }
+.hero-phone-col { display: flex; justify-content: flex-start; margin-left: -8px; }
+@media (max-width: 900px) {
+  .feature-row { grid-template-columns: 1fr; gap: 36px; padding: 44px 0; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 10px !important; padding-top: 52px !important; padding-bottom: 40px !important; }
+  .hero-phone-col { justify-content: center; margin-left: 0; }
 }
