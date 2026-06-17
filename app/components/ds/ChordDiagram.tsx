@@ -65,7 +65,7 @@ export function ChordDiagram({
       width={size}
       height={H * scale}
       viewBox={`0 0 ${W} ${H}`}
-      style={{ display: 'block', fontFamily: 'var(--font-body)', ...style }}
+      style={{ display: 'block', maxWidth: '100%', height: 'auto', fontFamily: 'var(--font-body)', ...style }}
     >
       {/* chord name */}
       {name && (

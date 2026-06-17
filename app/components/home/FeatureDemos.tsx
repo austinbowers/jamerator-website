@@ -56,9 +56,9 @@ export function GeneratorDemo() {
         <span style={{ color: 'var(--white)', fontWeight: 800, fontSize: 26 }}>{current.scale}</span>
         <span style={{ color: 'var(--gray-500)', fontWeight: 700, fontSize: 13 }}>Fresh jam</span>
       </div>
-      <div style={{ display: 'flex', gap: 12, justifyContent: 'space-between', opacity: rolling ? 0.2 : 1, transition: 'opacity 220ms var(--ease-standard)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(96px, 1fr))', justifyItems: 'center', gap: 12, opacity: rolling ? 0.2 : 1, transition: 'opacity 220ms var(--ease-standard)' }}>
         {current.chords.map((c, i) => (
-          <div key={c + i} style={{ textAlign: 'center', flex: 1, minWidth: 0 }}>
+          <div key={c + i} style={{ textAlign: 'center' }}>
             <div style={{ color: 'var(--white)', fontWeight: 700, fontSize: 13, marginBottom: 3 }}>{c}</div>
             <ChordDiagram frets={SHAPES[c].frets} barres={SHAPES[c].barres} size={96} />
           </div>

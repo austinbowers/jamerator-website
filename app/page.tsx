@@ -16,13 +16,13 @@ function Hero() {
       <div style={{ position: 'absolute', right: '-6%', top: '4%', width: 720, height: 720, borderRadius: '50%', background: 'radial-gradient(circle, rgba(133,181,156,0.16), transparent 65%)', pointerEvents: 'none' }}></div>
       <div className="wrap hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 24, alignItems: 'center', padding: '84px 32px 72px' }}>
         <div>
-          <h1 style={{ margin: '0 0 20px', fontSize: 64, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.05, textWrap: 'pretty' }}>
+          <h1 style={{ margin: '0 0 20px', fontSize: 'clamp(42px, 14vw, 64px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.05, textWrap: 'pretty' }}>
             Spark your<br />next <span style={{ color: 'var(--sage-400)' }}>jam.</span>
           </h1>
           <p className="body-copy" style={{ fontSize: 19, maxWidth: '44ch' }}>
             Whether you&apos;re riffing solo or rocking out with friends, Jamerator supercharges your creativity with fresh chord progressions — anytime, anywhere. Break out of your routine and keep the vibes flowing.
           </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 32 }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 14, marginTop: 32 }}>
             <Button variant="primary" size="lg" href={TRY_URL} style={{ whiteSpace: 'nowrap' }}>Try Jamerator</Button>
             <Button variant="secondary" size="lg" style={{ whiteSpace: 'nowrap' }} onClick={() => { const el = document.getElementById('features'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 60, behavior: 'smooth' }); }}>See What It Does</Button>
           </div>

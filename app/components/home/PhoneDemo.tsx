@@ -29,12 +29,13 @@ export function PhoneDemo({ scale = 0.6, animate = true, tilt = false }: { scale
   }, [animate]);
 
   return (
-    <div style={{ width: 390 * scale, height: 844 * scale, flex: 'none', perspective: tilt ? 2000 : undefined }}>
+    <div style={{ width: 390 * scale, height: 844 * scale, flex: 'none', position: 'relative', perspective: tilt ? 2000 : undefined }}>
       <div style={{
-        transform: tilt ? `scale(${scale}) rotateY(-15deg) rotateX(6deg) rotateZ(-2deg)` : `scale(${scale})`,
-        transformOrigin: tilt ? 'center center' : 'top left',
+        position: 'absolute', left: '50%', top: '50%',
+        transform: `translate(-50%, -50%) ${tilt ? `scale(${scale}) rotateY(-15deg) rotateX(6deg) rotateZ(-2deg)` : `scale(${scale})`}`,
+        transformOrigin: 'center center',
         transformStyle: 'preserve-3d',
-        width: 390, height: 844, position: 'relative',
+        width: 390, height: 844,
       }}>
         <div style={{ width: 390, height: 844, boxSizing: 'border-box', borderRadius: 56, padding: 13, background: 'linear-gradient(145deg, #3b4542 0%, #1c221f 40%, #121613 62%, #313b37 100%)', boxShadow: tilt ? '40px 60px 120px rgba(0,0,0,0.62), 0 0 0 1px rgba(0,0,0,0.5), inset 0 0 0 2px rgba(255,255,255,0.05)' : '0 40px 90px rgba(0,0,0,0.6), inset 0 0 0 2px rgba(255,255,255,0.04)', position: 'relative' }}>
           {/* titanium side buttons */}
