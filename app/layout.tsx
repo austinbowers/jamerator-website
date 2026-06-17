@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "./components/SiteHeader";
 
 const nunitoSans = Nunito_Sans({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Link className="footer-link" href="/terms-and-conditions">Terms &amp; Conditions</Link>
       </div>
     </footer>
+    <Analytics />
     </body>
     </html>
   );
