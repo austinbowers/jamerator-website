@@ -8,7 +8,7 @@ import { PhoneDemo } from './components/home/PhoneDemo';
 import { GeneratorDemo, DiagramStripDemo, ChartDemo, JamSessionDemo } from './components/home/FeatureDemos';
 import { MiniGrid } from './components/home/MiniGrid';
 
-const TRY_URL = 'https://jamerator-app.vercel.app/';
+const TRY_URL = 'https://apps.apple.com/us/app/jamerator/id6743706466';
 
 function Hero() {
   return (

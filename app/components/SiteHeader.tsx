@@ -7,7 +7,7 @@ import logo from '@/public/assets/Jamerator.png';
 import { Button } from './ds/Button';
 import { Icon } from './ds/Icon';
 
-const TRY_URL = 'https://jamerator-app.vercel.app/';
+const TRY_URL = 'https://apps.apple.com/us/app/jamerator/id6743706466';
 
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false);
