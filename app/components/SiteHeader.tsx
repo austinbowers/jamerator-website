@@ -4,8 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/public/assets/Jamerator.png';
-import { Button } from './ds/Button';
 import { Icon } from './ds/Icon';
+import { AppStoreBadge } from './AppStoreBadge';
 
 const TRY_URL = 'https://apps.apple.com/us/app/jamerator/id6743706466';
 
@@ -24,7 +24,7 @@ export function SiteHeader() {
           <Link className="nav-link" href="/contact">Contact</Link>
         </nav>
         <div className="header-cta" style={{ marginLeft: 'auto', flex: 'none' }}>
-          <Button variant="primary" size="sm" href={TRY_URL} style={{ whiteSpace: 'nowrap' }}>Try Jamerator</Button>
+          <AppStoreBadge href={TRY_URL} height={40} />
         </div>
         <button className="menu-toggle" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
           <Icon name={open ? 'x' : 'menu'} size={26} color="var(--white)" />
@@ -36,7 +36,7 @@ export function SiteHeader() {
           <a className="nav-link" href="/#jam-together" onClick={close}>Jam Together</a>
           <Link className="nav-link" href="/contact" onClick={close}>Contact</Link>
           <div style={{ marginTop: 18 }}>
-            <Button variant="primary" size="md" fullWidth href={TRY_URL} onClick={close}>Try Jamerator</Button>
+            <AppStoreBadge href={TRY_URL} height={48} onClick={close} />
           </div>
         </div>
       </div>
