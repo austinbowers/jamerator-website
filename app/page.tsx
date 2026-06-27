@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import appIcon from '@/public/assets/icon-light.png';
-import { Button } from './components/ds/Button';
 import { AppStoreBadge } from './components/AppStoreBadge';
 import { PhoneDemo } from './components/home/PhoneDemo';
 import { GeneratorDemo, DiagramStripDemo, ChartDemo, JamSessionDemo } from './components/home/FeatureDemos';
@@ -25,7 +24,6 @@ function Hero() {
           </p>
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 14, marginTop: 32 }}>
             <AppStoreBadge href={TRY_URL} height={56} />
-            <Button variant="secondary" size="lg" style={{ whiteSpace: 'nowrap' }} onClick={() => { const el = document.getElementById('features'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 60, behavior: 'smooth' }); }}>See What It Does</Button>
           </div>
         </div>
         <div className="hero-phone-col">
