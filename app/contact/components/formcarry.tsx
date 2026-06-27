@@ -1,19 +1,20 @@
 'use client'
 import React, { useState } from 'react';
+import { Icon } from '@/app/components/ds/Icon';
 
 export default function Formcarry() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [error, setError] = useState('')
+    const [sending, setSending] = useState(false)
+    const [sent, setSent] = useState(false)
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    function onSubmit(e){
+    function onSubmit(e: React.FormEvent) {
         e.preventDefault();
         e.stopPropagation();
+        setError('');
+        setSending(true);
 
         fetch("https://formcarry.com/s/mB1Qk1B-AIS", {
             method: 'POST',
@@ -26,45 +27,52 @@ export default function Formcarry() {
             .then(response => response.json())
             .then(response => {
                 if (response.code === 200) {
-                    alert("We received your submission, thank you!");
-                }
-                else if(response.code === 422){
-                    // Field validation failed
-                    setError(response.message)
-                }
-                else {
-                    // other error from formcarry
-                    setError(response.message)
+                    setSent(true);
+                } else {
+                    setError(response.message || 'Something went wrong. Please try again.');
                 }
             })
-            .catch(error => {
-                // request related error.
-                setError(error.message ? error.message : error);
-            });
+            .catch(err => {
+                setError(err.message ? err.message : String(err));
+            })
+            .finally(() => setSending(false));
     }
 
+    if (sent) {
+        return (
+            <div className="form-sent">
+                <span className="contact-ico" style={{ width: 54, height: 54, borderRadius: 16 }}>
+                    <Icon name="check" size={28} color="var(--forest)" strokeWidth={2.4} />
+                </span>
+                <h2 style={{ margin: 0, fontSize: 24, fontWeight: 800, color: 'var(--light-ink)' }}>Message sent!</h2>
+                <p className="body-copy" style={{ margin: '0 auto' }}>Thanks for reaching out. We&apos;ll get back to you as soon as we can.</p>
+            </div>
+        )
+    }
 
     return (
-        <form className="grid gap-6 w-full" onSubmit={(e) => onSubmit(e)}>
-
-            <div className="grid formcarry-block">
-                <label className="mb-1 block" htmlFor="name">Full Name</label>
-                <input className="px-3 py-2 rounded-lg border border-green-300 text-white" type="text" value={name} onChange={(e) => setName(e.target.value)} id="name" placeholder="Your first and last name" />
+        <form className="form-grid" onSubmit={onSubmit}>
+            <div className="form-field">
+                <label className="form-label" htmlFor="name">Full name</label>
+                <input className="form-input" type="text" value={name} onChange={(e) => setName(e.target.value)} id="name" placeholder="Your first and last name" required />
             </div>
 
-            <div className="grid formcarry-block">
-                <label className="mb-1 block" htmlFor="email">Your Email Address</label>
-                <input className="px-3 py-2 rounded-lg border border-green-300 text-white" type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" placeholder="john@doe.com" />
+            <div className="form-field">
+                <label className="form-label" htmlFor="email">Email address</label>
+                <input className="form-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email" placeholder="you@example.com" required />
             </div>
 
-            <div className="grid formcarry-block">
-                <label className="mb-1 block" htmlFor="message">Your message</label>
-                <textarea className="px-3 py-2 rounded-lg border border-green-300 text-white" value={message} onChange={(e) => setMessage(e.target.value)} id="message" placeholder="Enter your message..."></textarea>
+            <div className="form-field">
+                <label className="form-label" htmlFor="message">Your message</label>
+                <textarea className="form-input" value={message} onChange={(e) => setMessage(e.target.value)} id="message" placeholder="How can we help?" required></textarea>
             </div>
 
-            <div className="flex justify-center formcarry-block">
-                <button className="text-center text-lg font-bold bg-[#85B59C] hover:bg-green-300 text-black px-4 py-2 inline-flex items-center rounded-lg" type="submit">Send</button>
-            </div>
+            {error && <p className="form-error">{error}</p>}
+
+            <button className="form-submit" type="submit" disabled={sending}>
+                {sending ? 'Sending…' : 'Send message'}
+                {!sending && <Icon name="chevronRight" size={18} color="#FCFAF3" strokeWidth={2.4} />}
+            </button>
         </form>
     )
 }

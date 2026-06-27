@@ -25,9 +25,10 @@ export default function RootLayout({
     <body className={`${nunitoSans.variable} antialiased`}>
     <SiteHeader />
     {children}
-    <footer style={{ background: 'var(--green-surface)', padding: '56px 0 64px', textAlign: 'center' }}>
-      <p style={{ margin: 0, color: 'var(--muted-green)', fontWeight: 600, fontSize: 14 }}>© 2026 Sauce Collective, LLC. All rights reserved.</p>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: 22, marginTop: 16 }}>
+    <footer style={{ background: 'var(--light-bg)', borderTop: '1px solid var(--light-hairline)', padding: '56px 0 64px', textAlign: 'center' }}>
+      <p style={{ margin: 0, color: 'var(--light-ink-2)', fontWeight: 600, fontSize: 14 }}>© 2026 Sauce Collective, LLC. All rights reserved.</p>
+      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 22, marginTop: 16 }}>
+        <Link className="footer-link" href="/contact">Contact</Link>
         <Link className="footer-link" href="/privacy-policy">Privacy Policy</Link>
         <Link className="footer-link" href="/terms-and-conditions">Terms &amp; Conditions</Link>
       </div>

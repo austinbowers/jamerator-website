@@ -1,6 +1,6 @@
 export default function TermsAndConditions() {
     return (
-        <div className="bg-[#0A130E] min-h-screen p-6">
+        <div className="bg-white min-h-screen p-6">
             <div className="max-w-7xl mx-auto">
                 <h1 className="mb-4 text-4xl font-bold">Jamerator Terms and Conditions</h1>
                 <p className="text-sm text-gray-500 mb-2">Company: Sauce Collective, LLC</p>
