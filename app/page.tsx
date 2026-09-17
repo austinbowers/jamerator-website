@@ -38,8 +38,8 @@ function Hero() {
           </div>
         </div>
         <div className="hero-phone-col">
-          <RingHalo maxWidth={340}>
-            <PhoneShot src="/assets/screens/chart-tilt-alt-cut.png" alt="Jamerator chart view showing chord diagrams and a song chart for Eb minor" width={1359} height={1982} maxWidth={340} priority tone="light" blob={false} />
+          <RingHalo maxWidth={420}>
+            <PhoneShot src="/assets/screens/chart-tilt-cut.webp" alt="Jamerator chart view showing chord diagrams and a song chart for E major" width={1200} height={1968} maxWidth={320} deviceRatio={0.771} priority tone="light" blob={false} />
           </RingHalo>
         </div>
       </div>
@@ -166,7 +166,7 @@ export default function Home() {
           eyebrow="Generator"
           eyebrowIcon="sparkles"
           title={<>Instant chords.<br /><span style={{ color: ACCENT }}>Endless inspiration.</span></>}
-          phone={<PhoneShot src="/assets/screens/chart-tilt-cut.png" alt="Jamerator generating an Eb minor chord progression with diagrams and a chart" width={1454} height={2216} maxWidth={430} tone="light" blobX={4} blobY={8} />}
+          phone={<PhoneShot src="/assets/screens/chart-cut.webp" alt="Jamerator generating an E major chord progression with diagrams and a chart" width={1031} height={2094} maxWidth={340} tone="light" blobX={2} blobY={6} />}
         >
           Generate a beautiful chord progression with just a tap, complete with finger-by-finger chord diagrams and a play-along chart. Don&apos;t like it? Tap again for another. No menus, no setup, just an endless well of ideas.
         </FeatureSection>
@@ -176,7 +176,7 @@ export default function Home() {
           eyebrow="Scales"
           eyebrowIcon="music"
           title={<>Jam with matching <span style={{ color: ACCENT }}>scales.</span></>}
-          phone={<PhoneShot src="/assets/screens/scales-tilt-cut.png" alt="Jamerator scales view showing the Eb pentatonic minor scale across the fretboard" width={1334} height={2033} maxWidth={430} tone="light" blobX={-3} blobY={6} />}
+          phone={<PhoneShot src="/assets/screens/scales-tilt-cut.webp" alt="Jamerator Lead view showing the A pentatonic minor scale across the fretboard" width={1137} height={1733} maxWidth={330} deviceRatio={0.709} tone="light" blobX={-2} blobY={6} />}
         >
           Practice scales that fit perfectly with every progression. Switch to Scales and see exactly where every note lives on the fretboard, from pentatonics to full modes, so you always know what to solo with.
         </FeatureSection>
@@ -189,7 +189,7 @@ export default function Home() {
           eyebrowIcon="shuffle"
           title={<>Share the session, <span style={{ color: ACCENT }}>stay in sync.</span></>}
           note="Works over Bluetooth or Wi-Fi, no internet needed."
-          phone={<PhoneShot src="/assets/screens/jam-tilt-cut.png" alt="Jamerator Jam Together screen with options to start or join a jam" width={1334} height={2033} maxWidth={430} tone="light" blobX={-4} blobY={8} />}
+          phone={<PhoneShot src="/assets/screens/jam-cut.webp" alt="Jamerator Jam Together screen with options to start a jam or join one nearby" width={946} height={1921} maxWidth={340} tone="light" blobX={-2} blobY={6} />}
         >
           Playing with friends nearby? Start a jam and everyone&apos;s app syncs to the same chart, the same key, the same tempo. No more &quot;wait, what chord are we on?&quot;
         </FeatureSection>
@@ -204,9 +204,9 @@ export default function Home() {
           phone={
             <PhonePair
               tone="light"
-              maxWidth={540}
-              back={{ src: '/assets/screens/chart-tilt-alt-cut.png', alt: 'Jamerator chart in dark mode', width: 1359, height: 1982 }}
-              front={{ src: '/assets/screens/chart-light-tilt-cut.png', alt: 'Jamerator chart in light mode', width: 1137, height: 2014 }}
+              maxWidth={560}
+              back={{ src: '/assets/screens/tuner-light-cut.webp', alt: 'Jamerator tuner in light mode', width: 961, height: 1951, rotate: 0, deviceRatio: 0.998 }}
+              front={{ src: '/assets/screens/tuner-tilt-cut.webp', alt: 'Jamerator tuner in dark mode', width: 1200, height: 1931, rotate: 0, deviceRatio: 0.754 }}
             />
           }
         >

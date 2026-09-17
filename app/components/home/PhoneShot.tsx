@@ -24,7 +24,14 @@ interface PhoneShotProps {
   alt: string;
   width: number;
   height: number;
+  /** Width of the device itself, in px. */
   maxWidth?: number;
+  /**
+   * Device width divided by image width. Shots rendered on an angle carry
+   * empty corners, so sizing them by the image makes the phone read smaller
+   * than a straight-on shot at the same width.
+   */
+  deviceRatio?: number;
   priority?: boolean;
   tone?: 'dark' | 'light';
   blob?: boolean;
@@ -34,9 +41,10 @@ interface PhoneShotProps {
 }
 
 export function PhoneShot({
-  src, alt, width, height, maxWidth = 360, priority = false,
+  src, alt, width, height, maxWidth = 360, deviceRatio = 1, priority = false,
   tone = 'light', blob = true, blobX = 0, blobY = 4, blobScale = 1.32,
 }: PhoneShotProps) {
+  const imageMax = maxWidth / deviceRatio;
   return (
     <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
       {blob && (
@@ -61,7 +69,7 @@ export function PhoneShot({
         height={height}
         priority={priority}
         sizes="(max-width: 900px) 78vw, 440px"
-        style={{ position: 'relative', width: '100%', height: 'auto', maxWidth, display: 'block', filter: dropShadow(tone) }}
+        style={{ position: 'relative', width: '100%', height: 'auto', maxWidth: imageMax, display: 'block', filter: dropShadow(tone) }}
       />
     </div>
   );
@@ -82,15 +90,30 @@ export function RingHalo({ children, maxWidth = 360 }: { children: React.ReactNo
   );
 }
 
+interface PhonePairShot {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** Extra CSS tilt. Shots that are already rendered on an angle pass 0. */
+  rotate?: number;
+  /** Device width divided by image width — see PhoneShot. */
+  deviceRatio?: number;
+}
+
 interface PhonePairProps {
-  back: { src: string; alt: string; width: number; height: number };
-  front: { src: string; alt: string; width: number; height: number };
+  back: PhonePairShot;
+  front: PhonePairShot;
   tone?: 'dark' | 'light';
   maxWidth?: number;
 }
 
 /** PhonePair — two cut-out phones overlapping on one blob, for the light/dark story. */
 export function PhonePair({ back, front, tone = 'light', maxWidth = 520 }: PhonePairProps) {
+  // Both devices read the same size regardless of how each shot is angled.
+  const deviceWidth = 0.47;
+  const backWidth = `${(100 * deviceWidth) / (back.deviceRatio ?? 1)}%`;
+  const frontWidth = `${(100 * deviceWidth) / (front.deviceRatio ?? 1)}%`;
   return (
     <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', maxWidth, margin: '0 auto' }}>
       <div
@@ -105,12 +128,12 @@ export function PhonePair({ back, front, tone = 'light', maxWidth = 520 }: Phone
       <Image
         src={back.src} alt={back.alt} width={back.width} height={back.height}
         sizes="(max-width: 900px) 42vw, 230px"
-        style={{ position: 'relative', width: '52%', height: 'auto', transform: 'translateX(22%) rotate(2deg)', filter: dropShadow(tone) }}
+        style={{ position: 'relative', width: backWidth, height: 'auto', transform: `translateX(22%) rotate(${back.rotate ?? 2}deg)`, filter: dropShadow(tone) }}
       />
       <Image
         src={front.src} alt={front.alt} width={front.width} height={front.height}
         sizes="(max-width: 900px) 42vw, 230px"
-        style={{ position: 'relative', width: '54%', height: 'auto', marginLeft: '-26%', transform: 'translateY(6%) rotate(-2deg)', filter: dropShadow(tone), zIndex: 1 }}
+        style={{ position: 'relative', width: frontWidth, height: 'auto', marginLeft: '-22%', transform: `translateY(4%) rotate(${front.rotate ?? -2}deg)`, filter: dropShadow(tone), zIndex: 1 }}
       />
     </div>
   );
